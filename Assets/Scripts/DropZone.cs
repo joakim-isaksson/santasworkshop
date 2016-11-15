@@ -3,6 +3,8 @@ using System.Collections;
 
 public class DropZone : MonoBehaviour
 {
+	[HideInInspector]
+	public bool ContainsCube;
 
     private SphereCollider sphereCollider;
 
@@ -42,12 +44,8 @@ public class DropZone : MonoBehaviour
                 }
             }
 
-            // If the whole cube is contained within the sphere
-            if (!partiallyOutside)
-            {
-                cube.GetComponent<Rigidbody>().AddTorque(new Vector3(1, 0, 0));
-            }
-
+			// If the whole cube is contained within the sphere
+			ContainsCube = !partiallyOutside;
         } 
     }
     
