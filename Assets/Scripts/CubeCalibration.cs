@@ -31,13 +31,10 @@ public class CubeCalibration : MonoBehaviour
     /// <param name="other"></param>
     void MatchRotation(GameObject other)
     {
-        Transform controller = other.transform.parent;
         Transform rotator = other.transform;
 
-        // Set the parent Rotator's local position, relative to the controller, as the difference from the calibration point to the controller
-        rotator.localPosition = transform.position - controller.position;
-
-        // Set the parent Rotator's local rotation, relative to the controller, as the rotation of the table
-        rotator.localRotation = transform.rotation;
+		// Set the rotator's position and rotation
+		rotator.position = transform.position;
+        rotator.rotation = transform.rotation;
     }
 }
