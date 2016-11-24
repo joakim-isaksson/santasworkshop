@@ -39,7 +39,6 @@ public class MovableCube : MonoBehaviour
 			if (!wasStationary)
 			{
 				wasStationary = true;
-				StartCoroutine(HapticUtils.LongVibrationBoth(2, HapticUtils.Buzz));
 			}
 		}
 		else
