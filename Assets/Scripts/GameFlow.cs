@@ -10,7 +10,7 @@ public class GameFlow : MonoBehaviour
 	[HideInInspector]
 	public GameObject ActiveCube;
 
-	void Start()
+	void Awake()
 	{
 		// Create cubes for the rotators
 		// Assign the active cube and begin spawn animation
