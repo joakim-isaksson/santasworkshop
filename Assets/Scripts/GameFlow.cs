@@ -6,6 +6,7 @@ public class GameFlow : MonoBehaviour
 	public GameObject CubePrefab;
 
 	public GameObject[] Rotators;
+	public GameObject[] PresentPrefabs;
 
 	[HideInInspector]
 	public GameObject ActiveCube;
