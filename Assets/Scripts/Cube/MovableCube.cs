@@ -119,7 +119,7 @@ public class MovableCube : MonoBehaviour
         float dt = Time.deltaTime;
 
         spawnAnimationProgress += dt * spawnAnimationSpeed;
-
+        
         transform.position = Vector3.Lerp(spawnAnimationStartPosition, OwnerRotator.transform.position, spawnAnimationProgress);
         transform.rotation = Quaternion.Lerp(spawnAnimationStartRotation, OwnerRotator.transform.rotation, spawnAnimationProgress);
 

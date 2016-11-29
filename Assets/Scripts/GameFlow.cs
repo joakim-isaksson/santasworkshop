@@ -15,7 +15,7 @@ public class GameFlow : MonoBehaviour
 	{
         foreach (GameObject pipe in Pipes)
         {
-
+            pipe.GetComponent<Pipe>().SpawnCube();
         }
 	}
 	

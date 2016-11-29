@@ -16,7 +16,7 @@ public class Pipe : MonoBehaviour
 
     void Start()
     {
-        SpawnCube();
+
 	}
 	
 	void Update()
