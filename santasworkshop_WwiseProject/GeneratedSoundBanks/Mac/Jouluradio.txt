@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	4258851406	Play_Jouluradio			\Default Work Unit\Play_Jouluradio	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	279450930	Jouluradio	C:\Users\dfast\Documents\santasworkshop\santasworkshop_WwiseProject\.cache\Mac\SFX\Jouluradio_CB3C21FB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jouluradio		4425827
+
