@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Security.Cryptography;
 
 public class DropZone : MonoBehaviour
 {
@@ -7,7 +8,7 @@ public class DropZone : MonoBehaviour
 	public bool ContainsCube;
 
     [HideInInspector]
-    public GameObject ContainedCube;
+    public PresentCube ContainedCube;
 
     private SphereCollider sphereCollider;
 
@@ -42,6 +43,7 @@ public class DropZone : MonoBehaviour
                 Vector3 cornerPosition = cube.transform.TransformPoint(corner / 2.0f);
                 if (Vector3.Distance(cornerPosition, transform.position) >= sphereCollider.radius)
                 {
+                    Debug.Log(Vector3.Distance(cornerPosition, transform.position));
                     partiallyOutside = true;
                     break;
                 }
@@ -49,7 +51,12 @@ public class DropZone : MonoBehaviour
 
 			// If the whole cube is contained within the sphere
 			ContainsCube = !partiallyOutside;
-            ContainedCube = collider.gameObject;
+            ContainedCube = !partiallyOutside ? cube.GetComponent<PresentCube>() : null;
+
+            if (!partiallyOutside)
+            {
+                Debug.Log("INSIDE");
+            }
         } 
     }
     

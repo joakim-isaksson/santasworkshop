@@ -7,11 +7,13 @@ public class PresentCube : MonoBehaviour
 	public bool Spawned;
 	public bool Ready
 	{
-		get
-		{
-			return movableCube.Stationary && HasLid;
-		}
+		get { return movableCube.Stationary && HasLid; }
 	}
+
+    public bool Stationary
+    {
+        get { return movableCube.Stationary; }
+    }
 
 	public float PeanutFillRatio
 	{
