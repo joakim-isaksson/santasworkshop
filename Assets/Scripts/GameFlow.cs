@@ -24,6 +24,10 @@ public class GameFlow : MonoBehaviour
 		
 	}
 
+    /// <summary>
+    /// Register the given cube for the game flow object.
+    /// </summary>
+    /// <param name="cube"></param>
     public void RegisterCube(GameObject cube)
     {
         foreach (GameObject activeCube in ActiveCubes)

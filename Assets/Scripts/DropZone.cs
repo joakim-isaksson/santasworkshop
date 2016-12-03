@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Security.Cryptography;
 
 public class DropZone : MonoBehaviour
 {
@@ -7,7 +8,7 @@ public class DropZone : MonoBehaviour
 	public bool ContainsCube;
 
     [HideInInspector]
-    public GameObject ContainedCube;
+    public PresentCube ContainedCube;
 
     private SphereCollider sphereCollider;
 
@@ -16,6 +17,10 @@ public class DropZone : MonoBehaviour
         sphereCollider = GetComponent<SphereCollider>();
     }
 
+    /// <summary>
+    /// If the MovableCube stays within this trigger and is completely contained, assign ContainsCube and ContainedCube.
+    /// </summary>
+    /// <param name="collider"></param>
     void OnTriggerStay(Collider collider)
     {
         // Check if the other collider is completely encapsuled in our sphere collider
@@ -39,7 +44,7 @@ public class DropZone : MonoBehaviour
 
             foreach (Vector3 corner in corners)
             {
-                Vector3 cornerPosition = cube.transform.TransformPoint(corner / 2.0f);
+                Vector3 cornerPosition = cube.transform.TransformPoint(corner * 0.3f / 2.0f);
                 if (Vector3.Distance(cornerPosition, transform.position) >= sphereCollider.radius)
                 {
                     partiallyOutside = true;
@@ -49,7 +54,7 @@ public class DropZone : MonoBehaviour
 
 			// If the whole cube is contained within the sphere
 			ContainsCube = !partiallyOutside;
-            ContainedCube = collider.gameObject;
+            ContainedCube = !partiallyOutside ? cube.transform.parent.gameObject.GetComponent<PresentCube>() : null;
         } 
     }
     
