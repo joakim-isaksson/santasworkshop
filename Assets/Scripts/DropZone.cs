@@ -40,10 +40,9 @@ public class DropZone : MonoBehaviour
 
             foreach (Vector3 corner in corners)
             {
-                Vector3 cornerPosition = cube.transform.TransformPoint(corner / 2.0f);
+                Vector3 cornerPosition = cube.transform.TransformPoint(corner * 0.3f / 2.0f);
                 if (Vector3.Distance(cornerPosition, transform.position) >= sphereCollider.radius)
                 {
-                    Debug.Log(Vector3.Distance(cornerPosition, transform.position));
                     partiallyOutside = true;
                     break;
                 }
@@ -51,12 +50,7 @@ public class DropZone : MonoBehaviour
 
 			// If the whole cube is contained within the sphere
 			ContainsCube = !partiallyOutside;
-            ContainedCube = !partiallyOutside ? cube.GetComponent<PresentCube>() : null;
-
-            if (!partiallyOutside)
-            {
-                Debug.Log("INSIDE");
-            }
+            ContainedCube = !partiallyOutside ? cube.transform.parent.gameObject.GetComponent<PresentCube>() : null;
         } 
     }
     

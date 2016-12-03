@@ -31,7 +31,6 @@ public class PeanutMachine : MonoBehaviour
         spawnPeanuts = false;
         if (activationZone.ContainsCube && activationZone.ContainedCube.Stationary)
         {
-            Debug.Log("HERE");
             spawnPeanuts = true;
         }
 
@@ -48,7 +47,7 @@ public class PeanutMachine : MonoBehaviour
 
                 Vector3 spawnDirection = spawnPoint.up*-1.0f*EmitForce;
 
-                peanut.GetComponent<Rigidbody>().AddForce(spawnDirection);
+                //peanut.GetComponent<Rigidbody>().AddForce(spawnDirection, ForceMode.Impulse);
             }
         }
     }
