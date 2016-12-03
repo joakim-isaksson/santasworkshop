@@ -17,6 +17,10 @@ public class DropZone : MonoBehaviour
         sphereCollider = GetComponent<SphereCollider>();
     }
 
+    /// <summary>
+    /// If the MovableCube stays within this trigger and is completely contained, assign ContainsCube and ContainedCube.
+    /// </summary>
+    /// <param name="collider"></param>
     void OnTriggerStay(Collider collider)
     {
         // Check if the other collider is completely encapsuled in our sphere collider

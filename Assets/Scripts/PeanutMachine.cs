@@ -36,6 +36,7 @@ public class PeanutMachine : MonoBehaviour
 
         peanutSpawnTimer += dt;
 
+        // Handle spawning peanuts on a timer
         if (spawnPeanuts)
         {
             if (peanutSpawnTimer > 1.0f/PeanutSpawnRate)
@@ -45,9 +46,10 @@ public class PeanutMachine : MonoBehaviour
                 GameObject peanut = Instantiate(PeanutPrefab);
                 peanut.transform.position = spawnPoint.position;
 
+                // Spawn the peanut with random added force
                 Vector3 spawnDirection = spawnPoint.up*-1.0f*EmitForce;
-
-                //peanut.GetComponent<Rigidbody>().AddForce(spawnDirection, ForceMode.Impulse);
+                Vector3 randomSpawnOffset = Random.onUnitSphere / 2.0f;
+                peanut.GetComponent<Rigidbody>().AddForce(spawnDirection + randomSpawnOffset, ForceMode.Impulse);
             }
         }
     }
