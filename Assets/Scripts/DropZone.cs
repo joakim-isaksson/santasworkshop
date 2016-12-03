@@ -6,6 +6,9 @@ public class DropZone : MonoBehaviour
 	[HideInInspector]
 	public bool ContainsCube;
 
+    [HideInInspector]
+    public GameObject ContainedCube;
+
     private SphereCollider sphereCollider;
 
     void Awake()
@@ -46,6 +49,7 @@ public class DropZone : MonoBehaviour
 
 			// If the whole cube is contained within the sphere
 			ContainsCube = !partiallyOutside;
+            ContainedCube = collider.gameObject;
         } 
     }
     
