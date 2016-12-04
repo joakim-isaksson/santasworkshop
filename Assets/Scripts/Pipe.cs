@@ -4,6 +4,7 @@ using System.Collections;
 public class Pipe : MonoBehaviour
 {
     public GameObject CubePrefab;
+    public GameObject[] PresentPrefabs;
     public GameObject OwnerRotator;
     public CubeSide Side;
 
@@ -24,6 +25,9 @@ public class Pipe : MonoBehaviour
 	
 	}
 
+    /// <summary>
+    /// Spawn the cube and pass it a randomly chosen present
+    /// </summary>
     public void SpawnCube()
     {
         GameObject cube = Instantiate(CubePrefab);
@@ -36,5 +40,12 @@ public class Pipe : MonoBehaviour
         movableCube.OwnerRotator = OwnerRotator;
 
         movableCube.Init();
+
+        // Spawn a random present
+        GameObject randomPresentPrefab = PresentPrefabs[Random.Range(0, PresentPrefabs.Length)];
+        GameObject randomPresent = Instantiate(randomPresentPrefab);
+
+        var presentCube = cube.GetComponent<PresentCube>();
+        presentCube.AssignPresent(randomPresent);
     }
 }

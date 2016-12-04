@@ -59,6 +59,37 @@ public class PresentCube : MonoBehaviour
 		lid.SetActive(HasLid);
 	}
 
+    /// <summary>
+    /// Assigns this cube the given present. Repositions the present.
+    /// </summary>
+    /// <param name="present"></param>
+    public void AssignPresent(GameObject present)
+    {
+        Transform presentAnchor = transform.Find("PresentAnchor").transform;
+
+        present.transform.parent = presentAnchor;
+        present.transform.position = presentAnchor.position;
+        presentAnchor.transform.rotation = presentAnchor.rotation;
+    }
+
+    /// <summary>
+    /// Detach the present that was assigned to the cube after the cube has spawned
+    /// </summary>
+    public void DetachPresent()
+    {
+        GameObject present;
+        foreach (Transform child in transform.Find("PresentAnchor").transform)
+        {
+            if (child.tag == "Present")
+            {
+                present = child.gameObject;
+                present.GetComponent<Rigidbody>().isKinematic = false;
+                present.transform.parent = null;
+                break;
+            }
+        }
+    }
+
 	/// <summary>
 	/// Destroy the peanuts and other objects belonging to this object.
 	/// </summary>

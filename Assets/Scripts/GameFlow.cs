@@ -6,7 +6,6 @@ public class GameFlow : MonoBehaviour
     public GameObject[] Pipes;
 
 	public GameObject[] Rotators;
-	public GameObject[] PresentPrefabs;
 
 	[HideInInspector]
 	public List<GameObject> ActiveCubes;

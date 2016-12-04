@@ -27,6 +27,8 @@ public class MovableCube : MonoBehaviour
 
     // Privates
 
+    private PresentCube presentCube;
+
 	private bool wasStationary; //temporary?
 
     private bool isInPlay;
@@ -41,6 +43,7 @@ public class MovableCube : MonoBehaviour
 
 	void Awake()
 	{
+	    presentCube = GetComponent<PresentCube>();
 		// Initialize the lastPositions array
 		lastPositions = new Vector3[lastPositionsMax];
 		lastPositionIndex = 0;
@@ -72,7 +75,7 @@ public class MovableCube : MonoBehaviour
         gameObject.transform.SetParent(OwnerRotator.transform);
 
         isInPlay = true;
-        // TODO activate present physics? Perhaps the presnet should be instantiated already and should follow the box.
+        presentCube.DetachPresent();
     }
 
     /// <summary>
