@@ -31,7 +31,7 @@ public class CubeCalibration : MonoBehaviour
     /// <param name="other"></param>
     void MatchRotation(GameObject other)
     {
-        Transform rotator = other.transform;
+        Transform rotator = other.transform.Find("MainCube").transform;
 
 		// Set the rotator's position and rotation
 		rotator.position = transform.position;

@@ -44,6 +44,7 @@ public class Peanut : MonoBehaviour
     void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.tag != "MovableCube" && 
+			other.gameObject.tag != "CubePart" &&
             other.gameObject.tag != "Peanut" &&
             other.gameObject.tag != "Present")
         {

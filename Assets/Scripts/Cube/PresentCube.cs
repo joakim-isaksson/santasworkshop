@@ -102,6 +102,8 @@ public class PresentCube : MonoBehaviour
 		Destroy(Present);
 	}
 
+	/*
+	
 	/// <summary>
 	/// Handle objects entering the present
 	/// </summary>
@@ -160,4 +162,6 @@ public class PresentCube : MonoBehaviour
 			Present = null;
 		}
 	}
+
+	*/
 }

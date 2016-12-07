@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 
 public class GameFlow : MonoBehaviour
@@ -12,10 +13,17 @@ public class GameFlow : MonoBehaviour
 
 	void Awake()
 	{
-        foreach (GameObject pipe in Pipes)
-        {
-            pipe.GetComponent<Pipe>().SpawnCube();
-        }
+		//StartCoroutine(StartGame());
+	}
+
+	IEnumerator StartGame()
+	{
+		yield return new WaitForSeconds(2);
+
+		foreach (GameObject pipe in Pipes)
+		{
+			pipe.GetComponent<Pipe>().SpawnCube();
+		}
 	}
 	
 	void Update()

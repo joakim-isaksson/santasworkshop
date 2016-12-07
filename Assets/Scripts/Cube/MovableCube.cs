@@ -72,7 +72,7 @@ public class MovableCube : MonoBehaviour
         isAnimatingSpawn = false;
         // Announces itself to the general gameflow object
         GameObject.Find("General").GetComponent<GameFlow>().RegisterCube(gameObject);
-        gameObject.transform.SetParent(OwnerRotator.transform);
+        //gameObject.transform.SetParent(OwnerRotator.transform);
 
         isInPlay = true;
         presentCube.DetachPresent();
