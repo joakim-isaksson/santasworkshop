@@ -42,7 +42,8 @@ public class MovableCube : MonoBehaviour
     private Vector3 spawnAnimationStartPosition;
     private Quaternion spawnAnimationStartRotation;
 
-	private NVRHand hand;
+	[HideInInspector]
+	public NVRHand hand;
 
 	void Awake()
 	{
@@ -92,16 +93,16 @@ public class MovableCube : MonoBehaviour
     public void TakeOutOfPlay()
     {
 		Debug.Log("Take out of play");
-        isAnimatingExit = true;
+        isAnimatingExit = true; 
         isInPlay = false;
 
-		//hand.EndInteraction(gameObject.GetComponent<NVRInteractableItem>());
+		hand.EndInteraction(gameObject.GetComponent<NVRInteractableItem>());
     }
 
 	public void ReattachHand()
 	{
-		Debug.Log("Reattach hand");
-		//hand.EndInteraction(gameObject.GetComponent<NVRInteractableItem>());
+		Debug.Log("Detaching hand");
+		hand.EndInteraction(gameObject.GetComponent<NVRInteractableItem>());
 
 		StartCoroutine(AttachHand());
 	}
@@ -109,6 +110,7 @@ public class MovableCube : MonoBehaviour
 	private IEnumerator AttachHand()
 	{
 		yield return new WaitForEndOfFrame();
+		Debug.Log("Attaching hand");
 		hand.BeginInteraction(gameObject.GetComponent<NVRInteractableItem>());
 	}
 

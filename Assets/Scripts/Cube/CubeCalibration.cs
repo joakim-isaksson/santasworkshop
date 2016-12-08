@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using NewtonVR;
 
 public class CubeCalibration : MonoBehaviour
 {
@@ -38,10 +39,12 @@ public class CubeCalibration : MonoBehaviour
 
         Transform rotator = other.transform.Find("Rotator");
 
-		// Set the rotator's position and rotation
-		rotator.position = transform.position;
-        rotator.rotation = transform.rotation;
+		NVRHand hand = other.GetComponent<MovableCube>().hand;
 
-		other.GetComponent<MovableCube>().ReattachHand();
+		// Set the rotator's position and rotation
+		rotator.position = other.transform.position - transform.position + hand.transform.position;
+		//rotator.rotation = other.transform.rotation + other.transform.rotation - hand.transform.rotation;
+
+		//other.GetComponent<MovableCube>().ReattachHand();
     }
 }
