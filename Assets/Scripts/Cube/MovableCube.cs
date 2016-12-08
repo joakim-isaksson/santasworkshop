@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using NewtonVR;
 
 public enum CubeSide
 {
@@ -41,6 +42,8 @@ public class MovableCube : MonoBehaviour
     private Vector3 spawnAnimationStartPosition;
     private Quaternion spawnAnimationStartRotation;
 
+	private NVRHand hand;
+
 	void Awake()
 	{
 	    presentCube = GetComponent<PresentCube>();
@@ -56,8 +59,10 @@ public class MovableCube : MonoBehaviour
     /// <summary>
     /// Cube spawns into existence. Starts animating the cube towards the assigned controller location.
     /// </summary>
-    public void Init()
+    public void Init(NVRHand assignedHand)
     {
+		hand = assignedHand;
+
         isAnimatingSpawn = true;
 
         spawnAnimationStartPosition = transform.position;
@@ -75,6 +80,9 @@ public class MovableCube : MonoBehaviour
         //gameObject.transform.SetParent(OwnerRotator.transform);
 
         isInPlay = true;
+
+		hand.BeginInteraction(gameObject.GetComponent<NVRInteractableItem>());
+
         presentCube.DetachPresent();
     }
 
@@ -83,9 +91,26 @@ public class MovableCube : MonoBehaviour
     /// </summary>
     public void TakeOutOfPlay()
     {
+		Debug.Log("Take out of play");
         isAnimatingExit = true;
         isInPlay = false;
+
+		//hand.EndInteraction(gameObject.GetComponent<NVRInteractableItem>());
     }
+
+	public void ReattachHand()
+	{
+		Debug.Log("Reattach hand");
+		//hand.EndInteraction(gameObject.GetComponent<NVRInteractableItem>());
+
+		StartCoroutine(AttachHand());
+	}
+
+	private IEnumerator AttachHand()
+	{
+		yield return new WaitForEndOfFrame();
+		hand.BeginInteraction(gameObject.GetComponent<NVRInteractableItem>());
+	}
 
 	void Update()
 	{

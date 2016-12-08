@@ -3,25 +3,28 @@ using System.Collections;
 
 public class CubeCalibration : MonoBehaviour
 {
-    public GameObject LeftRotator;
-    public GameObject RightRotator;
+	private GameFlow gameFlow;
 
     void Awake()
     {
         // Move the calibration point to the center of the cube, so x-0.15, y/z+0.15
         transform.Translate(new Vector3(-0.15f, 0.15f, 0.15f));
+
+		gameFlow = GameObject.Find("General").GetComponent<GameFlow>();
     }
 
     void Update()
     {
         if (Input.GetKeyDown("space"))
         {
-            MatchRotation(LeftRotator);
+			GameObject cube = gameFlow.Cubes[0];
+            MatchRotation(cube);
         }
 
         if (Input.GetKeyDown("return"))
         {
-            MatchRotation(RightRotator);
+			GameObject cube = gameFlow.Cubes[1];
+			MatchRotation(cube);
         }
     }
 
@@ -31,10 +34,14 @@ public class CubeCalibration : MonoBehaviour
     /// <param name="other"></param>
     void MatchRotation(GameObject other)
     {
-        Transform rotator = other.transform.Find("MainCube").transform;
+		if (other == null) return;
+
+        Transform rotator = other.transform.Find("Rotator");
 
 		// Set the rotator's position and rotation
 		rotator.position = transform.position;
         rotator.rotation = transform.rotation;
+
+		other.GetComponent<MovableCube>().ReattachHand();
     }
 }
