@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using NewtonVR;
 
 public class Pipe : MonoBehaviour
 {
     public GameObject CubePrefab;
+    public GameObject[] PresentPrefabs;
     public GameObject OwnerRotator;
     public CubeSide Side;
 
@@ -24,7 +26,10 @@ public class Pipe : MonoBehaviour
 	
 	}
 
-    public void SpawnCube()
+    /// <summary>
+    /// Spawn the cube and pass it a randomly chosen present
+    /// </summary>
+    public GameObject SpawnCube(NVRHand hand, bool startAnimation)
     {
         GameObject cube = Instantiate(CubePrefab);
         cube.transform.position = cubeSpawnPoint.position;
@@ -33,8 +38,17 @@ public class Pipe : MonoBehaviour
         // Assign the side (left/right) of the cube
         var movableCube = cube.GetComponent<MovableCube>();
         movableCube.Side = Side;
-        movableCube.OwnerRotator = OwnerRotator;
+        movableCube.OwnerRotator = hand.gameObject;
 
-        movableCube.Init();
+        movableCube.Init(hand);
+
+        // Spawn a random present
+        GameObject randomPresentPrefab = PresentPrefabs[Random.Range(0, PresentPrefabs.Length)];
+        GameObject randomPresent = Instantiate(randomPresentPrefab);
+
+        var presentCube = cube.GetComponent<PresentCube>();
+        presentCube.AssignPresent(randomPresent);
+
+		return cube;
     }
 }

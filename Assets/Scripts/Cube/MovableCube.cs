@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using NewtonVR;
 
 public enum CubeSide
 {
@@ -27,6 +28,8 @@ public class MovableCube : MonoBehaviour
 
     // Privates
 
+    private PresentCube presentCube;
+
 	private bool wasStationary; //temporary?
 
     private bool isInPlay;
@@ -39,8 +42,12 @@ public class MovableCube : MonoBehaviour
     private Vector3 spawnAnimationStartPosition;
     private Quaternion spawnAnimationStartRotation;
 
+	[HideInInspector]
+	public NVRHand hand;
+
 	void Awake()
 	{
+	    presentCube = GetComponent<PresentCube>();
 		// Initialize the lastPositions array
 		lastPositions = new Vector3[lastPositionsMax];
 		lastPositionIndex = 0;
@@ -53,8 +60,10 @@ public class MovableCube : MonoBehaviour
     /// <summary>
     /// Cube spawns into existence. Starts animating the cube towards the assigned controller location.
     /// </summary>
-    public void Init()
+    public void Init(NVRHand assignedHand)
     {
+		hand = assignedHand;
+
         isAnimatingSpawn = true;
 
         spawnAnimationStartPosition = transform.position;
@@ -69,10 +78,13 @@ public class MovableCube : MonoBehaviour
         isAnimatingSpawn = false;
         // Announces itself to the general gameflow object
         GameObject.Find("General").GetComponent<GameFlow>().RegisterCube(gameObject);
-        gameObject.transform.SetParent(OwnerRotator.transform);
+        //gameObject.transform.SetParent(OwnerRotator.transform);
 
         isInPlay = true;
-        // TODO activate present physics? Perhaps the presnet should be instantiated already and should follow the box.
+
+		hand.BeginInteraction(gameObject.GetComponent<NVRInteractableItem>());
+
+        presentCube.DetachPresent();
     }
 
     /// <summary>
@@ -80,9 +92,27 @@ public class MovableCube : MonoBehaviour
     /// </summary>
     public void TakeOutOfPlay()
     {
-        isAnimatingExit = true;
+		Debug.Log("Take out of play");
+        isAnimatingExit = true; 
         isInPlay = false;
+
+		hand.EndInteraction(gameObject.GetComponent<NVRInteractableItem>());
     }
+
+	public void ReattachHand()
+	{
+		Debug.Log("Detaching hand");
+		hand.EndInteraction(gameObject.GetComponent<NVRInteractableItem>());
+
+		StartCoroutine(AttachHand());
+	}
+
+	private IEnumerator AttachHand()
+	{
+		yield return new WaitForEndOfFrame();
+		Debug.Log("Attaching hand");
+		hand.BeginInteraction(gameObject.GetComponent<NVRInteractableItem>());
+	}
 
 	void Update()
 	{
