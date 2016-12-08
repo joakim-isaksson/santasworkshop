@@ -42,9 +42,7 @@ public class CubeCalibration : MonoBehaviour
 		NVRHand hand = other.GetComponent<MovableCube>().hand;
 
 		// Set the rotator's position and rotation
-		rotator.position = other.transform.position - transform.position + hand.transform.position;
-		//rotator.rotation = other.transform.rotation + other.transform.rotation - hand.transform.rotation;
-
-		//other.GetComponent<MovableCube>().ReattachHand();
+		rotator.position = other.transform.position - ( transform.position - hand.transform.position );
+		rotator.transform.localRotation = Quaternion.Inverse(transform.rotation) * hand.transform.rotation;
     }
 }
