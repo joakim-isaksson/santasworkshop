@@ -16,12 +16,12 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4000011334206532}
-  - 33: {fileID: 33000011661247564}
-  - 135: {fileID: 135000010504593494}
-  - 114: {fileID: 114000011521205098}
+  - component: {fileID: 4000011334206532}
+  - component: {fileID: 33000011661247564}
+  - component: {fileID: 135000010504593494}
+  - component: {fileID: 114000011521205098}
   m_Layer: 0
   m_Name: DropZone
   m_TagString: Untagged
@@ -34,12 +34,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4000011338312056}
-  - 33: {fileID: 33000011139917190}
-  - 23: {fileID: 23000010737065234}
-  - 114: {fileID: 114000011623568502}
+  - component: {fileID: 4000011338312056}
+  - component: {fileID: 33000011139917190}
+  - component: {fileID: 23000010737065234}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -53,14 +52,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012118611438}
-  m_LocalRotation: {x: 0.00015234893, y: 0.99302113, z: 0.001282847, w: 0.11792968}
-  m_LocalPosition: {x: -1.6120455, y: 5.2265825, z: -1.044}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000011338312056}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4000011338312056
 Transform:
   m_ObjectHideFlags: 1
@@ -70,10 +69,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 4000011334206532}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23000010737065234
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -87,8 +86,10 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 3675ca5444746954f94e74981720931e, type: 2}
-  m_SubsetIndices: 
+  - {fileID: 2100000, guid: 699d7d67b4b150a42b203a2b1421e355, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
@@ -96,7 +97,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_SelectedWireframeHidden: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -130,17 +131,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ContainsCube: 0
   ContainedCube: {fileID: 0}
---- !u!114 &114000011623568502
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013129415152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e127a730c105e584f9d8a45c9553b267, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!135 &135000010504593494
 SphereCollider:
   m_ObjectHideFlags: 1
