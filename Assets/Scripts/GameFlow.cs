@@ -17,7 +17,7 @@ public class GameFlow : MonoBehaviour
 
 	void Awake()
 	{
-		Cubes = new GameObject[2];
+        Cubes = new GameObject[2];
 
 		StartCoroutine(StartGame());
 	}
