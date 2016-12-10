@@ -42,7 +42,7 @@ public class Pipe : MonoBehaviour
 
         movableCube.Init(hand);
 
-        // Spawn a random present
+		// Spawn a random present
         GameObject randomPresentPrefab = PresentPrefabs[Random.Range(0, PresentPrefabs.Length)];
         GameObject randomPresent = Instantiate(randomPresentPrefab);
 

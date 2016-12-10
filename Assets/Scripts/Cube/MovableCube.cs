@@ -26,7 +26,9 @@ public class MovableCube : MonoBehaviour
     [HideInInspector]
     public GameObject OwnerRotator;
 
-    // Privates
+	// Privates
+
+	private Transform rotator;
 
     private PresentCube presentCube;
 
@@ -64,7 +66,21 @@ public class MovableCube : MonoBehaviour
     {
 		hand = assignedHand;
 
-        isAnimatingSpawn = true;
+		//Copy the calibrated rotator values from the gameobjects CalibratedLeftRotator and CalibratedRightRotator
+		Transform calibratedRotator;
+		if (Side == CubeSide.Left)
+		{
+			calibratedRotator = GameObject.Find("CalibratedLeftRotator").transform;
+		}
+		else
+		{
+			calibratedRotator = GameObject.Find("CalibratedRightRotator").transform;
+		}
+		rotator = transform.Find("Rotator").transform;
+		rotator.localPosition = calibratedRotator.position;
+		rotator.localRotation = calibratedRotator.rotation;
+
+		isAnimatingSpawn = true;
 
         spawnAnimationStartPosition = transform.position;
         spawnAnimationStartRotation = transform.rotation;
@@ -78,12 +94,9 @@ public class MovableCube : MonoBehaviour
         isAnimatingSpawn = false;
         // Announces itself to the general gameflow object
         GameObject.Find("General").GetComponent<GameFlow>().RegisterCube(gameObject);
-        //gameObject.transform.SetParent(OwnerRotator.transform);
 
         isInPlay = true;
-
 		hand.BeginInteraction(gameObject.GetComponent<NVRInteractableItem>());
-
         presentCube.DetachPresent();
     }
 
@@ -99,6 +112,7 @@ public class MovableCube : MonoBehaviour
 		hand.EndInteraction(gameObject.GetComponent<NVRInteractableItem>());
     }
 
+	/*
 	public void ReattachHand()
 	{
 		Debug.Log("Detaching hand");
@@ -113,6 +127,7 @@ public class MovableCube : MonoBehaviour
 		Debug.Log("Attaching hand");
 		hand.BeginInteraction(gameObject.GetComponent<NVRInteractableItem>());
 	}
+	*/
 
 	void Update()
 	{
@@ -149,9 +164,12 @@ public class MovableCube : MonoBehaviour
         float dt = Time.deltaTime;
 
         spawnAnimationProgress += dt * spawnAnimationSpeed;
+
+		Vector3 endPosition = OwnerRotator.transform.position - rotator.localPosition;
+		Quaternion endRotation = OwnerRotator.transform.rotation * Quaternion.Inverse(rotator.localRotation);
         
-        transform.position = Vector3.Lerp(spawnAnimationStartPosition, OwnerRotator.transform.position, spawnAnimationProgress);
-        transform.rotation = Quaternion.Lerp(spawnAnimationStartRotation, OwnerRotator.transform.rotation, spawnAnimationProgress);
+        transform.position = Vector3.Lerp(spawnAnimationStartPosition, endPosition, spawnAnimationProgress);
+        transform.rotation = Quaternion.Lerp(spawnAnimationStartRotation, endRotation, spawnAnimationProgress);
 
         if (spawnAnimationProgress >= 1f)
         {

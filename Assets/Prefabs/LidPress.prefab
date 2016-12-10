@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4000013222395024}
   - component: {fileID: 33000012297965612}
   - component: {fileID: 23000012539008308}
+  - component: {fileID: 64148739781244254}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -38,6 +39,7 @@ GameObject:
   - component: {fileID: 4000012012087928}
   - component: {fileID: 33000013559862816}
   - component: {fileID: 23000012631419686}
+  - component: {fileID: 64490827719242088}
   m_Layer: 0
   m_Name: Press
   m_TagString: Untagged
@@ -54,6 +56,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4000012532207144}
   - component: {fileID: 114173423767920352}
+  - component: {fileID: 95015564708457594}
   m_Layer: 0
   m_Name: LidPress
   m_TagString: Untagged
@@ -71,6 +74,7 @@ GameObject:
   - component: {fileID: 4358905193488444}
   - component: {fileID: 33684526655967152}
   - component: {fileID: 23119963969157286}
+  - component: {fileID: 114644358695795614}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -116,7 +120,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000014240507878}
   m_LocalRotation: {x: -0, y: -0.7698295, z: -0, w: 0.63824964}
-  m_LocalPosition: {x: -0.698, y: 0.017, z: -0.147}
+  m_LocalPosition: {x: -0.698, y: -0, z: -0.147}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4000013222395024}
@@ -286,6 +290,51 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1682255761425748}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!64 &64148739781244254
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012072132492}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300002, guid: e4897b5a310f01247b6b0d0cb1b73494, type: 3}
+--- !u!64 &64490827719242088
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013821573670}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: e4897b5a310f01247b6b0d0cb1b73494, type: 3}
+--- !u!95 &95015564708457594
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000014240507878}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 76d52548143d66d44ba66dfe645dc6ca, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114115633116420296
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -308,6 +357,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1de1051823799394bb04e62389f82ec1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CooldownTime: 3
+  SetLidDelay: 0
+--- !u!114 &114644358695795614
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1682255761425748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29ab2dcd6727b27448818e7e7661eb69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!135 &135852165626624944

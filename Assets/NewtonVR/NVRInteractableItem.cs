@@ -58,7 +58,7 @@ namespace NewtonVR
                 float angle;
                 Vector3 axis;
 
-                if (InteractionPoint != null)
+                if (InteractionPoint != null && AttachedHand != null)
                 {
                     rotationDelta = AttachedHand.transform.rotation * Quaternion.Inverse(InteractionPoint.rotation);
                     positionDelta = (AttachedHand.transform.position - InteractionPoint.position);

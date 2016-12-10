@@ -36,6 +36,7 @@ GameObject:
   - component: {fileID: 4961335218983200}
   - component: {fileID: 33510138944612104}
   - component: {fileID: 23506509004575676}
+  - component: {fileID: 114900474209837392}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -191,6 +192,9 @@ MonoBehaviour:
   CubePrefab: {fileID: 1000012483147620, guid: 3db047ec389048446b06d74fedc72d72, type: 2}
   PresentPrefabs:
   - {fileID: 1000010656488774, guid: aeb61c5446844d245971ba0381fb74be, type: 2}
+  - {fileID: 1257921576619846, guid: e73473d35da2d3e41b304a17be205474, type: 2}
+  - {fileID: 1969238015845718, guid: febfce28983fe4c4c9e86a1b15f0e310, type: 2}
+  - {fileID: 1623918494530740, guid: d6ac67e482eddbe4fa06cecb3a70996f, type: 2}
   OwnerRotator: {fileID: 0}
   Side: 1
 --- !u!114 &114446686431766120
@@ -206,6 +210,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ContainsCube: 0
   ContainedCube: {fileID: 0}
+--- !u!114 &114900474209837392
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1683021271299508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29ab2dcd6727b27448818e7e7661eb69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!135 &135613060808921540
 SphereCollider:
   m_ObjectHideFlags: 1
