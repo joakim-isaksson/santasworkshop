@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 23047545792947896}
   - component: {fileID: 95506796460843478}
   - component: {fileID: 54165874501354532}
-  - component: {fileID: 65018779082632690}
+  - component: {fileID: 65182852312662328}
   m_Layer: 0
   m_Name: Toy3
   m_TagString: Present
@@ -787,7 +787,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &65018779082632690
+--- !u!65 &65182852312662328
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -797,8 +797,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.09325065, y: 0.26455006, z: 0.12859884}
-  m_Center: {x: -0.002369076, y: 0.06895408, z: 0.19482508}
+  m_Size: {x: 0.05915065, y: 0.18378648, z: 0.07307966}
+  m_Center: {x: 0.00012478977, y: 0.047568247, z: 0.01572698}
 --- !u!95 &95506796460843478
 Animator:
   serializedVersion: 3
