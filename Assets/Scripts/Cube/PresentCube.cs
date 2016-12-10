@@ -66,11 +66,12 @@ public class PresentCube : MonoBehaviour
     public void AssignPresent(GameObject present)
     {
         Transform presentAnchor = transform.Find("PresentAnchor").transform;
-
-        present.transform.parent = presentAnchor;
+        
         present.transform.position = presentAnchor.position;
-        presentAnchor.transform.rotation = presentAnchor.rotation;
-    }
+        present.transform.rotation = presentAnchor.rotation;
+
+		present.transform.parent = presentAnchor;
+	}
 
     /// <summary>
     /// Detach the present that was assigned to the cube after the cube has spawned

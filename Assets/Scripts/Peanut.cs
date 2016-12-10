@@ -48,7 +48,6 @@ public class Peanut : MonoBehaviour
             other.gameObject.tag != "Peanut" &&
             other.gameObject.tag != "Present")
         {
-			Debug.Log(other.gameObject);
             Destroy(gameObject, DestroyTime);
             willDestroy = true;
         }
