@@ -7,13 +7,15 @@ public class Pipe : MonoBehaviour
     public GameObject CubePrefab;
     public GameObject[] PresentPrefabs;
     public GameObject OwnerRotator;
+    public Transform CubeSpawnPoint;
     public CubeSide Side;
-
-    private Transform cubeSpawnPoint;
+    public Animator Anim;
+    
+    DropZone dropZone;
 
     void Awake()
     {
-        cubeSpawnPoint = transform.Find("BoxSpawnPoint").transform;
+        dropZone = GetComponentInChildren<DropZone>();
     }
 
     void Start()
@@ -23,7 +25,7 @@ public class Pipe : MonoBehaviour
 	
 	void Update()
     {
-	
+
 	}
 
     /// <summary>
@@ -32,7 +34,7 @@ public class Pipe : MonoBehaviour
     public GameObject SpawnCube(NVRHand hand, bool startAnimation)
     {
         GameObject cube = Instantiate(CubePrefab);
-        cube.transform.position = cubeSpawnPoint.position;
+        cube.transform.position = CubeSpawnPoint.position;
         cube.transform.rotation = Random.rotation;
 
         // Assign the side (left/right) of the cube
