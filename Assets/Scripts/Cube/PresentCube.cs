@@ -15,6 +15,7 @@ public class PresentCube : MonoBehaviour
         get { return movableCube.Stationary; }
     }
 
+	/*
 	public float PeanutFillRatio
 	{
 		get
@@ -28,9 +29,20 @@ public class PresentCube : MonoBehaviour
 		}
 	}
 	public int MaxPeanuts;
-
+	*/
+	private bool hasLid;
 	[HideInInspector]
-	public bool HasLid;
+	public bool HasLid {
+		get { return hasLid; }
+		set
+		{
+			hasLid = value;
+			if (hasLid)
+			{
+				DestroyInnards();	
+			}
+		}
+	}
 	[HideInInspector]
 	public bool HasPresent;
 	[HideInInspector]
@@ -40,7 +52,7 @@ public class PresentCube : MonoBehaviour
 	public GameObject Present;
 
 	// Privates
-	private List<GameObject> peanuts;
+	private List<GameObject> innards;
 	private MovableCube movableCube;
 
 	private GameObject lid;
@@ -49,7 +61,7 @@ public class PresentCube : MonoBehaviour
 	void Start()
 	{
 		movableCube = GetComponent<MovableCube>();
-		peanuts = new List<GameObject>();
+		innards = new List<GameObject>();
 		lid = transform.Find("Lid").gameObject;
 	}
 
@@ -96,15 +108,22 @@ public class PresentCube : MonoBehaviour
 	/// </summary>
 	void OnDestroy()
 	{
-		foreach (GameObject peanut in peanuts)
-		{
-			Destroy(peanut);
-		}
-		Destroy(Present);
+		DestroyInnards();
 	}
 
-	/*
-	
+	/// <summary>
+	/// Clears any objects (Peanuts/Presents) inside the cube.
+	/// </summary>
+	void DestroyInnards()
+	{
+		foreach(GameObject obj in innards)
+		{
+			Debug.Log("Destroying " + obj);
+			Destroy(obj);
+		}
+		innards = new List<GameObject>();
+	}
+
 	/// <summary>
 	/// Handle objects entering the present
 	/// </summary>
@@ -118,10 +137,12 @@ public class PresentCube : MonoBehaviour
 
 		if (HasLid)
 		{
-			Debug.Log("Trigger enter when lid is on, shouldn't happen");
+			//Debug.Log("Trigger enter when lid is on, shouldn't happen");
 			return;
 		}
 
+		innards.Add(other.gameObject);
+		/*
 		if (other.tag == "Peanut")
 		{
 			if (peanuts.Count > MaxPeanuts)
@@ -135,6 +156,7 @@ public class PresentCube : MonoBehaviour
 		{
 			Present = other.gameObject;
 		}
+		*/
 	}
 
 	/// <summary>
@@ -150,10 +172,13 @@ public class PresentCube : MonoBehaviour
 
 		if (HasLid)
 		{
-			Debug.Log("Trigger exit when lid is on, shouldn't happen");
+			//Debug.Log("Trigger exit when lid is on, shouldn't happen");
 			return;
 		}
 
+		innards.Remove(other.gameObject);
+
+		/*
 		if (other.tag == "Peanut")
 		{
 			peanuts.Remove(other.gameObject);
@@ -162,7 +187,7 @@ public class PresentCube : MonoBehaviour
 		{
 			Present = null;
 		}
+		*/
 	}
 
-	*/
 }
