@@ -11,12 +11,13 @@ public class Pipe : MonoBehaviour
     public CubeSide Side;
     public Animator Anim;
     public float AnimationTime;
+    public Transform ExitPoint;
 
     [HideInInspector]
     public bool Closed;
 
     DropZone dropZone;
-    bool onCooldown;
+    bool animating;
 
     void Awake()
     {
@@ -30,11 +31,19 @@ public class Pipe : MonoBehaviour
 	
 	void Update()
     {
-        if (onCooldown) return;
+        if (animating) return;
 
         if (Closed)
         {
-
+            if (dropZone.ContainsCube)
+            {
+                PresentCube cube = dropZone.ContainedCube;
+                if (cube.HasLid && cube.Stationary)
+                {
+                    MovableCube mCube = cube.GetComponent<MovableCube>();
+                    StartCoroutine(OpenPipe(mCube));
+                }
+            }
         }
 
         // Open
@@ -80,19 +89,32 @@ public class Pipe : MonoBehaviour
 
     IEnumerator ClosePipe(MovableCube insideCube)
     {
-        Anim.SetTrigger("Close");
-        if (insideCube != null) insideCube.TakeOutOfPlay();
-        
+        animating = true;
+
+        Anim.SetTrigger(Side.ToString() + "Close");
         yield return new WaitForSeconds(AnimationTime);
 
-
+        if (insideCube != null)
+        {
+            Anim.SetTrigger(Side.ToString() + "Hatch");
+            insideCube.ExitPoint = ExitPoint;
+            insideCube.TakeOutOfPlay();
+        }
         Closed = true;
+
+        animating = false;
     }
 
-    IEnumerator OpenPipe()
+    IEnumerator OpenPipe(MovableCube insideCube)
     {
-        Anim.SetTrigger("Open");
+        animating = true;
+
+        Anim.SetTrigger(Side.ToString() + "Open");
         yield return new WaitForSeconds(AnimationTime);
+
+        if (insideCube != null) insideCube.TakeIntoPlay();
         Closed = false;
+
+        animating = false;
     }
 }

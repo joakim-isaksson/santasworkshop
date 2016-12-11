@@ -11,8 +11,9 @@ public enum CubeSide
 public class MovableCube : MonoBehaviour
 {
 	public float StationaryThreshold;
+    public float ExitSpeed = 10f;
 
-	public bool Stationary
+    public bool Stationary
 	{
 		get { return IsStationary(); }
 	}
@@ -25,6 +26,9 @@ public class MovableCube : MonoBehaviour
     public CubeSide Side;
     [HideInInspector]
     public GameObject OwnerRotator;
+
+    [HideInInspector]
+    public Transform ExitPoint;
 
 	// Privates
 
@@ -182,7 +186,11 @@ public class MovableCube : MonoBehaviour
     /// </summary>
     void AnimateExit()
     {
-
+        Vector3.MoveTowards(transform.position, ExitPoint.position, Time.deltaTime * ExitSpeed);
+        if (Vector3.Distance(transform.position, ExitPoint.position) < 0.01)
+        {
+            Destroy(gameObject);
+        }
     }
 
 	/// <summary>

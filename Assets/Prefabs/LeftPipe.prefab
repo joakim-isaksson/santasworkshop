@@ -36,6 +36,21 @@ GameObject:
   m_Component:
   - component: {fileID: 4000012242748718}
   m_Layer: 0
+  m_Name: BoxExitPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1542523328914512
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4553690700048766}
+  m_Layer: 0
   m_Name: BoxSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,12 +99,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013939687936}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.174, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.162, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4000013622538620}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4000013622538620
 Transform:
@@ -102,6 +117,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4419780399656390}
+  - {fileID: 4553690700048766}
   - {fileID: 4000012242748718}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -119,6 +135,19 @@ Transform:
   - {fileID: 4608275257990342}
   m_Father: {fileID: 4000013622538620}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4553690700048766
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1542523328914512}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.174, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4000013622538620}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4608275257990342
 Transform:
@@ -196,9 +225,12 @@ MonoBehaviour:
   - {fileID: 1969238015845718, guid: febfce28983fe4c4c9e86a1b15f0e310, type: 2}
   - {fileID: 1623918494530740, guid: d6ac67e482eddbe4fa06cecb3a70996f, type: 2}
   OwnerRotator: {fileID: 0}
-  CubeSpawnPoint: {fileID: 4000012242748718}
+  CubeSpawnPoint: {fileID: 4553690700048766}
   Side: 0
   Anim: {fileID: 0}
+  AnimationTime: 2
+  ExitPoint: {fileID: 4000012242748718}
+  Closed: 0
 --- !u!114 &114033462668831640
 MonoBehaviour:
   m_ObjectHideFlags: 1
