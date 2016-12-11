@@ -66,7 +66,8 @@ namespace NewtonVR
 
             for (int index = 0; index < Colliders.Length; index++)
             {
-                //todo: this does not do what I think it does.
+				//todo: this does not do what I think it does.
+				if (Colliders[index] == null) continue;
                 Vector3 closest = Colliders[index].ClosestPointOnBounds(AttachedHand.transform.position);
                 float distance = Vector3.Distance(AttachedHand.transform.position, closest);
 
