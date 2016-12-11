@@ -27,7 +27,7 @@ public class Pipe : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(ClosePipe(null));
+
     }
 	
 	void Update()
@@ -79,7 +79,7 @@ public class Pipe : MonoBehaviour
 	IEnumerator ClosePipe(MovableCube cube)
     {
         animating = true;
-		cube.TakeOutOfPlay();
+		if (cube != null) cube.TakeOutOfPlay();
 
 		Anim.SetTrigger(Side.ToString() + "Up");
         yield return new WaitForSeconds(AnimationTime);
