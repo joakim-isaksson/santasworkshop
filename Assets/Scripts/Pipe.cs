@@ -10,8 +10,13 @@ public class Pipe : MonoBehaviour
     public Transform CubeSpawnPoint;
     public CubeSide Side;
     public Animator Anim;
-    
+    public float AnimationTime;
+
+    [HideInInspector]
+    public bool Closed;
+
     DropZone dropZone;
+    bool onCooldown;
 
     void Awake()
     {
@@ -20,13 +25,32 @@ public class Pipe : MonoBehaviour
 
     void Start()
     {
-
-	}
+        StartCoroutine(ClosePipe(null));
+    }
 	
 	void Update()
     {
+        if (onCooldown) return;
 
-	}
+        if (Closed)
+        {
+
+        }
+
+        // Open
+        else
+        {
+            if (dropZone.ContainsCube)
+            {
+                PresentCube cube = dropZone.ContainedCube;
+                if (cube.HasLid && cube.Stationary)
+                {
+                    MovableCube mCube = cube.GetComponent<MovableCube>();
+                    StartCoroutine(ClosePipe(mCube));
+                }
+            }
+        }
+    }
 
     /// <summary>
     /// Spawn the cube and pass it a randomly chosen present
@@ -52,5 +76,23 @@ public class Pipe : MonoBehaviour
         presentCube.AssignPresent(randomPresent);
 
 		return cube;
+    }
+
+    IEnumerator ClosePipe(MovableCube insideCube)
+    {
+        Anim.SetTrigger("Close");
+        if (insideCube != null) insideCube.TakeOutOfPlay();
+        
+        yield return new WaitForSeconds(AnimationTime);
+
+
+        Closed = true;
+    }
+
+    IEnumerator OpenPipe()
+    {
+        Anim.SetTrigger("Open");
+        yield return new WaitForSeconds(AnimationTime);
+        Closed = false;
     }
 }
