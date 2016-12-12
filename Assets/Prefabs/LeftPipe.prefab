@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4000013622538620}
   - component: {fileID: 114000013079813532}
   - component: {fileID: 95681930843695988}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeftPipe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4000012242748718}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BoxExitPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,7 +69,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4553690700048766}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BoxSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 33860761431446532}
   - component: {fileID: 135522477843851986}
   - component: {fileID: 114033462668831640}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DropZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 33357407573690254}
   - component: {fileID: 23577706172529664}
   - component: {fileID: 114431839100298920}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -214,7 +214,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1812659315717540}
   m_LocalRotation: {x: -0.7074966, y: -0.058247656, z: -0.058715336, w: 0.70186067}
-  m_LocalPosition: {x: 0.002, y: -0.348, z: -0.052}
+  m_LocalPosition: {x: 0.002, y: 0.63, z: -0.052}
   m_LocalScale: {x: 100.000015, y: 100.00006, z: 100.00005}
   m_Children: []
   m_Father: {fileID: 4000013622538620}
@@ -497,7 +497,6 @@ MonoBehaviour:
   OwnerRotator: {fileID: 0}
   CubeSpawnPoint: {fileID: 4553690700048766}
   Side: 0
-  Anim: {fileID: 0}
   AnimationTime: 2
   ExitPoint: {fileID: 4000012242748718}
   ExitSpeed: 1.2
