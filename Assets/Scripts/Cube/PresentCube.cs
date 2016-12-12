@@ -31,6 +31,7 @@ public class PresentCube : MonoBehaviour
 	public int MaxPeanuts;
 	*/
 	private bool hasLid;
+	private bool hadLid;
 	[HideInInspector]
 	public bool HasLid {
 		get { return hasLid; }
@@ -69,6 +70,17 @@ public class PresentCube : MonoBehaviour
 	{
 		// Show/hide the lid
 		lid.SetActive(HasLid);
+
+		// First Update when the lid is put on - disable wall colliders and enable one large collider
+		if (!hadLid && hasLid)
+		{
+			hadLid = true;
+			foreach (Transform collider in transform.Find("Box").transform)
+			{
+				collider.gameObject.SetActive(false);
+			}
+			transform.Find("WholeCollider").gameObject.SetActive(true);
+		}
 	}
 
     /// <summary>
@@ -118,7 +130,7 @@ public class PresentCube : MonoBehaviour
 	{
 		foreach(GameObject obj in innards)
 		{
-			Debug.Log("Destroying " + obj);
+			//Debug.Log("Destroying " + obj);
 			Destroy(obj);
 		}
 		innards = new List<GameObject>();
