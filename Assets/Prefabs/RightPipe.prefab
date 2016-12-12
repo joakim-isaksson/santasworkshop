@@ -36,8 +36,8 @@ GameObject:
   - component: {fileID: 4759110321844644}
   - component: {fileID: 33187263493812880}
   - component: {fileID: 23227475192299256}
-  - component: {fileID: 64481102420388470}
-  m_Layer: 0
+  - component: {fileID: 64323835154770004}
+  m_Layer: 8
   m_Name: Glasstube_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 33175297663121282}
   - component: {fileID: 23268794020635880}
   - component: {fileID: 64294101841588096}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: presentTube_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 33937125567515306}
   - component: {fileID: 23289974228882764}
   - component: {fileID: 64762825132687494}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: kansi_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -432,7 +432,7 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 03b48871c6cfc0642b19133845fa453a, type: 3}
---- !u!64 &64481102420388470
+--- !u!64 &64323835154770004
 MeshCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -500,6 +500,7 @@ MonoBehaviour:
   Anim: {fileID: 0}
   AnimationTime: 2
   ExitPoint: {fileID: 4340225359502638}
+  ExitSpeed: 1.2
   Closed: 0
 --- !u!114 &114446686431766120
 MonoBehaviour:

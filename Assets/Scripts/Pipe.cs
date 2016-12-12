@@ -9,7 +9,6 @@ public class Pipe : MonoBehaviour
     public GameObject OwnerRotator;
     public Transform CubeSpawnPoint;
     public CubeSide Side;
-    public Animator Anim;
     public float AnimationTime;
     public Transform ExitPoint;
 	public float ExitSpeed = 1.2f;
@@ -17,12 +16,14 @@ public class Pipe : MonoBehaviour
 	[HideInInspector]
     public bool Closed;
 
-    DropZone dropZone;
+	Animator Anim;
+	DropZone dropZone;
     bool animating;
 
     void Awake()
     {
         dropZone = GetComponentInChildren<DropZone>();
+		Anim = GetComponent<Animator>();
     }
 
     void Start()
@@ -81,18 +82,13 @@ public class Pipe : MonoBehaviour
         animating = true;
 		if (cube != null) cube.TakeOutOfPlay();
 
-		Anim.SetTrigger(Side.ToString() + "Up");
+		Anim.SetTrigger("Close");
         yield return new WaitForSeconds(AnimationTime);
 
         if (cube != null)
         {
-            Anim.SetTrigger(Side.ToString() + "Hatch");
-
-			while (Vector3.Distance(cube.transform.position, ExitPoint.position) < 0.01)
-			{
-				cube.transform.position = Vector3.MoveTowards(cube.transform.position, ExitPoint.position, Time.deltaTime * ExitSpeed);
-			}
-			Destroy(gameObject);
+            Anim.SetTrigger("Hatch");
+			Destroy(cube.gameObject, AnimationTime);
 		}
 
         Closed = true;
@@ -103,7 +99,7 @@ public class Pipe : MonoBehaviour
     {
         animating = true;
 
-        Anim.SetTrigger(Side.ToString() + "Down");
+        Anim.SetTrigger("Open");
         yield return new WaitForSeconds(AnimationTime);
 
         Closed = false;
