@@ -24,15 +24,38 @@ public class GameFlow : MonoBehaviour
 
 	IEnumerator StartGame()
 	{
-		yield return new WaitForSeconds(2);
+		yield return new WaitForSeconds(3);
 
 		Cubes[0] = Pipes[0].GetComponent<Pipe>().SpawnCube(LeftHand);
+
+		// Spawn both cubes if in debug mode
+		if (GameObject.Find("GameManager").GetComponent<GameManager>().DebugMode == false)
+		{
+			yield return new WaitForSeconds(6);
+		}
+
 		Cubes[1] = Pipes[1].GetComponent<Pipe>().SpawnCube(RightHand);
 	}
 	
 	void Update()
 	{
 		
+	}
+
+	/// <summary>
+	/// Spawns and stores a new cube on the given side.
+	/// </summary>
+	/// <param name="side"></param>
+	public void SpawnCube(CubeSide side)
+	{
+		if (side == CubeSide.Left)
+		{
+			Cubes[0] = Pipes[0].GetComponent<Pipe>().SpawnCube(LeftHand);
+		}
+		else
+		{
+			Cubes[1] = Pipes[1].GetComponent<Pipe>().SpawnCube(RightHand);
+		}
 	}
 
 }

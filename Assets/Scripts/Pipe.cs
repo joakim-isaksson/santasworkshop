@@ -104,7 +104,7 @@ public class Pipe : MonoBehaviour
 		NVRHand hand = cube.GetComponent<MovableCube>().hand;
 		Destroy(cube.gameObject);
 
-		SpawnCube(hand);
+		GameObject.Find("General").GetComponent<GameFlow>().SpawnCube(Side);
 	}
 
 	IEnumerator OpenPipe()
