@@ -93,7 +93,6 @@ public class MovableCube : MonoBehaviour
     {
         isAnimatingSpawn = false;
         // Announces itself to the general gameflow object
-        GameObject.Find("General").GetComponent<GameFlow>().RegisterCube(gameObject);
 
         isInPlay = true;
 		hand.BeginInteraction(gameObject.GetComponent<NVRInteractableItem>());

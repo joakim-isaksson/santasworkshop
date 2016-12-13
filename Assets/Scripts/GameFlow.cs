@@ -26,8 +26,8 @@ public class GameFlow : MonoBehaviour
 	{
 		yield return new WaitForSeconds(2);
 
-		Cubes[0] = Pipes[0].GetComponent<Pipe>().SpawnCube(LeftHand, true);
-		Cubes[1] = Pipes[1].GetComponent<Pipe>().SpawnCube(RightHand, false);
+		Cubes[0] = Pipes[0].GetComponent<Pipe>().SpawnCube(LeftHand);
+		Cubes[1] = Pipes[1].GetComponent<Pipe>().SpawnCube(RightHand);
 	}
 	
 	void Update()
@@ -35,20 +35,4 @@ public class GameFlow : MonoBehaviour
 		
 	}
 
-    /// <summary>
-    /// Register the given cube for the game flow object.
-    /// </summary>
-    /// <param name="cube"></param>
-    public void RegisterCube(GameObject cube)
-    {
-        foreach (GameObject activeCube in ActiveCubes)
-        {
-            if (activeCube.GetComponent<MovableCube>().Side == cube.GetComponent<MovableCube>().Side)
-            {
-                Debug.Log("Cube on an existing side was spawned. BIG NO-NO");
-            }
-        }
-
-        ActiveCubes.Add(cube);
-    }
 }

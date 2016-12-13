@@ -52,7 +52,7 @@ public class Pipe : MonoBehaviour
     /// <summary>
     /// Spawn the cube and pass it a randomly chosen present
     /// </summary>
-    public GameObject SpawnCube(NVRHand hand, bool startAnimation)
+    public GameObject SpawnCube(NVRHand hand)
     {
         GameObject cube = Instantiate(CubePrefab);
         cube.transform.position = CubeSpawnPoint.position;
@@ -88,18 +88,31 @@ public class Pipe : MonoBehaviour
         if (cube != null)
         {
             Anim.SetTrigger("Hatch");
-			Destroy(cube.gameObject, AnimationTime);
+			cube.gameObject.transform.Find("WholeCollider").gameObject.SetActive(false);
 		}
+
+		// try to spawn new cube
+		StartCoroutine(RespawnCube(cube));
 
         Closed = true;
         animating = false;
     }
 
-    IEnumerator OpenPipe()
+	IEnumerator RespawnCube(MovableCube cube)
+	{
+		yield return new WaitForSeconds(Random.Range(2.0f, 10.0f));
+		NVRHand hand = cube.GetComponent<MovableCube>().hand;
+		Destroy(cube.gameObject);
+
+		SpawnCube(hand);
+	}
+
+	IEnumerator OpenPipe()
     {
         animating = true;
+		yield return new WaitForSeconds(2.0f);
 
-        Anim.SetTrigger("Open");
+		Anim.SetTrigger("Open");
         yield return new WaitForSeconds(AnimationTime);
 
         Closed = false;
