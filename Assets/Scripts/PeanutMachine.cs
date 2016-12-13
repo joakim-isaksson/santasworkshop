@@ -12,6 +12,8 @@ public class PeanutMachine : MonoBehaviour
 
     private float peanutSpawnTimer;
     private bool spawnPeanuts;
+	private bool startedSpawning;
+	private bool stoppedSpawning;
     
     void Update()
     {
@@ -28,6 +30,12 @@ public class PeanutMachine : MonoBehaviour
         // Handle spawning peanuts on a timer
         if (spawnPeanuts)
         {
+			stoppedSpawning = false;
+			if (!startedSpawning)
+			{
+				startedSpawning = true;
+				GetComponent<AudioSource>().Play();
+			}
             if (peanutSpawnTimer > 1.0f/PeanutSpawnRate)
             {
                 peanutSpawnTimer = 0f;
@@ -42,5 +50,15 @@ public class PeanutMachine : MonoBehaviour
                 peanut.GetComponent<Rigidbody>().AddForce(spawnDirection + randomSpawnOffset, ForceMode.Impulse);
             }
         }
+		else
+		{
+			startedSpawning = false;
+
+			if (!stoppedSpawning)
+			{
+				stoppedSpawning = true;
+				GetComponent<AudioSource>().Stop();
+			}
+		}
     }
 }

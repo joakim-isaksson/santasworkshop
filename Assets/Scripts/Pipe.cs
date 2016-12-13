@@ -83,7 +83,8 @@ public class Pipe : MonoBehaviour
 		if (cube != null) cube.TakeOutOfPlay();
 
 		Anim.SetTrigger("Close");
-        yield return new WaitForSeconds(AnimationTime);
+		transform.Find("SlideSound").GetComponent<AudioSource>().Play();
+		yield return new WaitForSeconds(AnimationTime);
 
         if (cube != null)
         {
@@ -100,6 +101,7 @@ public class Pipe : MonoBehaviour
 
 	IEnumerator RespawnCube(MovableCube cube)
 	{
+		transform.Find("WhompSound").GetComponent<AudioSource>().Play();
 		yield return new WaitForSeconds(Random.Range(2.0f, 10.0f));
 		NVRHand hand = cube.GetComponent<MovableCube>().hand;
 		Destroy(cube.gameObject);
@@ -113,6 +115,7 @@ public class Pipe : MonoBehaviour
 		yield return new WaitForSeconds(2.0f);
 
 		Anim.SetTrigger("Open");
+		transform.Find("SlideSound").GetComponent<AudioSource>().Play();
         yield return new WaitForSeconds(AnimationTime);
 
         Closed = false;
