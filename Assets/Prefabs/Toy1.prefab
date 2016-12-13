@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 95611490465347932}
   - component: {fileID: 54000012616590796}
   - component: {fileID: 65739270291147182}
+  - component: {fileID: 114726225347729906}
   m_Layer: 0
   m_Name: Toy1
   m_TagString: Present
@@ -57,7 +58,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 8d7dc9e54d726458f83077c550caa8d4, type: 2}
+  - {fileID: 2100000, guid: a8387c269df614dc382280672a22f3ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -126,3 +127,16 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114726225347729906
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010656488774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ed944ab3d673834b8e24532ef9997f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RandomTextures:
+  - {fileID: 2800000, guid: 15af3596ac09b45c2ad160e826d7238f, type: 3}
