@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 95025957666567068}
   - component: {fileID: 135993730961147338}
   - component: {fileID: 54442552982649066}
+  - component: {fileID: 114745363766799744}
   m_Layer: 0
   m_Name: Toy2
   m_TagString: Present
@@ -114,6 +115,22 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114745363766799744
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1257921576619846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ed944ab3d673834b8e24532ef9997f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RandomTextures:
+  - {fileID: 2800000, guid: 44f7ba6b0e7fdf04f88c5c39c422cb64, type: 3}
+  - {fileID: 2800000, guid: 5d4604183e758584b9167d8d92e7ea31, type: 3}
+  - {fileID: 2800000, guid: a6768f72b48a6914aab13974a58bd20c, type: 3}
+  - {fileID: 2800000, guid: c4d535ba330e7e642910d151591a2b5c, type: 3}
 --- !u!135 &135993730961147338
 SphereCollider:
   m_ObjectHideFlags: 1

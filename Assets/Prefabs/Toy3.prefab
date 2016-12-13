@@ -157,6 +157,7 @@ GameObject:
   - component: {fileID: 4258599064484920}
   - component: {fileID: 33547626684268316}
   - component: {fileID: 23409357382398216}
+  - component: {fileID: 114907220370055956}
   m_Layer: 0
   m_Name: Cube_001
   m_TagString: Untagged
@@ -194,6 +195,7 @@ GameObject:
   - component: {fileID: 95506796460843478}
   - component: {fileID: 54165874501354532}
   - component: {fileID: 65182852312662328}
+  - component: {fileID: 114338430565927910}
   m_Layer: 0
   m_Name: Toy3
   m_TagString: Present
@@ -234,7 +236,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1969238015845718}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.42948717, y: 0.7496957, z: 0.51020586}
+  m_LocalPosition: {x: 8.638161, y: -0.28043061, z: 4.1648407}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4258599064484920}
@@ -816,3 +818,29 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114338430565927910
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1969238015845718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ed944ab3d673834b8e24532ef9997f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RandomTextures:
+  - {fileID: 2800000, guid: 421c61e3060cb45a4acc932f0b6095f4, type: 3}
+--- !u!114 &114907220370055956
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1587507620682374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ed944ab3d673834b8e24532ef9997f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RandomTextures:
+  - {fileID: 2800000, guid: aac073cfbe245493d9b174ca23c8a237, type: 3}
