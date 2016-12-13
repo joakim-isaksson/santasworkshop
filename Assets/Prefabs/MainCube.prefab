@@ -655,7 +655,7 @@ MonoBehaviour:
   StationaryThreshold: 0.005
   Side: 0
   OwnerRotator: {fileID: 0}
-  spawnAnimationSpeed: 1
+  spawnAnimationSpeed: 5
   hand: {fileID: 0}
 --- !u!114 &114904601051509000
 MonoBehaviour:

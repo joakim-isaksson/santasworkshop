@@ -56,7 +56,7 @@ public class Pipe : MonoBehaviour
     {
         GameObject cube = Instantiate(CubePrefab);
         cube.transform.position = CubeSpawnPoint.position;
-        cube.transform.rotation = Random.rotation;
+        cube.transform.rotation = Quaternion.Euler(Random.Range(-30, 30), Random.Range(0, 360), Random.Range(-30, 30));
 
         // Assign the side (left/right) of the cube
         var movableCube = cube.GetComponent<MovableCube>();
