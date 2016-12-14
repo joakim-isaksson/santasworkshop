@@ -31,7 +31,7 @@ public class GameFlow : MonoBehaviour
 		// Spawn both cubes if in debug mode
 		if (GameObject.Find("GameManager").GetComponent<GameManager>().DebugMode == false)
 		{
-			yield return new WaitForSeconds(6);
+			yield return new WaitForSeconds(3);
 		}
 
 		Cubes[1] = Pipes[1].GetComponent<Pipe>().SpawnCube(RightHand);

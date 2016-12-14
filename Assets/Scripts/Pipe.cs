@@ -102,7 +102,7 @@ public class Pipe : MonoBehaviour
 	IEnumerator RespawnCube(MovableCube cube)
 	{
 		transform.Find("WhompSound").GetComponent<AudioSource>().Play();
-		yield return new WaitForSeconds(Random.Range(2.0f, 10.0f));
+		yield return new WaitForSeconds(Random.Range(2.0f, 5.0f));
 		NVRHand hand = cube.GetComponent<MovableCube>().hand;
 		Destroy(cube.gameObject);
 

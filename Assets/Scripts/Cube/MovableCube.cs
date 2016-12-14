@@ -91,6 +91,16 @@ public class MovableCube : MonoBehaviour
     /// </summary>
     public void TakeIntoPlay()
     {
+		// Play arrive sound
+		if (Side == CubeSide.Left)
+		{
+			GameObject.Find("LeftPipe").transform.Find("ArriveSound").GetComponent<AudioSource>().Play();
+		}
+		else
+		{
+			GameObject.Find("RightPipe").transform.Find("ArriveSound").GetComponent<AudioSource>().Play();
+		}
+
         isAnimatingSpawn = false;
         // Announces itself to the general gameflow object
 

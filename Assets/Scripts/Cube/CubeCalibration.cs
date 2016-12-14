@@ -9,7 +9,7 @@ public class CubeCalibration : MonoBehaviour
     void Awake()
     {
         // Move the calibration point to the center of the cube, so x-0.15, y/z+0.15
-        transform.Translate(new Vector3(-0.15f, 0.15f, 0.15f));
+        transform.Translate(new Vector3(0.15f, 0.15f, 0.15f));
 
 		gameFlow = GameObject.Find("General").GetComponent<GameFlow>();
     }

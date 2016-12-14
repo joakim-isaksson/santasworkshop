@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 114000014034168060}
   - component: {fileID: 114000013377101728}
   - component: {fileID: 114904601051509000}
+  - component: {fileID: 114404225043172604}
   m_Layer: 10
   m_Name: MainCube
   m_TagString: CubePart
@@ -657,6 +658,18 @@ MonoBehaviour:
   OwnerRotator: {fileID: 0}
   spawnAnimationSpeed: 5
   hand: {fileID: 0}
+--- !u!114 &114404225043172604
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012483147620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5acc68a2ecf98824ba3f8fa739c53028, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Material: 7
 --- !u!114 &114904601051509000
 MonoBehaviour:
   m_ObjectHideFlags: 1

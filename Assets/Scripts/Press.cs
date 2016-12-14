@@ -28,7 +28,7 @@ public class Press : MonoBehaviour
             if (cube.Stationary && !cube.HasLid)
             {
                 anim.SetTrigger("Fire");
-				GetComponent<AudioSource>().Play();
+				transform.Find("Audio").GetComponent<AudioSource>().Play();
                 StartCoroutine(SetLid());
                 StartCoroutine(Cooldown());
             }
