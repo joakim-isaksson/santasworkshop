@@ -46,7 +46,7 @@ public class PeanutMachine : MonoBehaviour
 
                 // Spawn the peanut with random added force
                 Vector3 spawnDirection = PeanutSpawnPoint.up * -1.0f * EmitForce;
-                Vector3 randomSpawnOffset = Random.onUnitSphere / 2.0f;
+                Vector3 randomSpawnOffset = Random.onUnitSphere / 200.0f;
                 peanut.GetComponent<Rigidbody>().AddForce(spawnDirection + randomSpawnOffset, ForceMode.Impulse);
             }
         }
