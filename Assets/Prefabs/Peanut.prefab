@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23000012902964092}
   - component: {fileID: 54000011549981428}
   - component: {fileID: 114000010441190092}
-  - component: {fileID: 135084510402454178}
+  - component: {fileID: 65409705096672066}
   m_Layer: 0
   m_Name: Peanut
   m_TagString: Peanut
@@ -91,12 +91,24 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 12
-  m_AngularDrag: 0.5
+  m_AngularDrag: 1.5
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &65409705096672066
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011865318592}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.024020001, y: 0.011, z: 0.01142}
+  m_Center: {x: 0.00026600016, y: 0.00008999999, z: -0.0002570001}
 --- !u!114 &114000010441190092
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -111,15 +123,3 @@ MonoBehaviour:
   FadeStartTime: 2
   DestroyTime: 3
   willDestroy: 0
---- !u!135 &135084510402454178
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011865318592}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.01
-  m_Center: {x: 0.00026600016, y: 0.00008999999, z: -0.0002570001}

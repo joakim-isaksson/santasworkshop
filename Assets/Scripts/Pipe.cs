@@ -43,7 +43,10 @@ public class Pipe : MonoBehaviour
                 if (cube.HasLid && cube.Stationary)
                 {
                     MovableCube mCube = cube.GetComponent<MovableCube>();
-                    StartCoroutine(ClosePipe(mCube));
+					if (mCube.Side == Side)
+					{
+						StartCoroutine(ClosePipe(mCube));
+					}
                 }
             }
         }
