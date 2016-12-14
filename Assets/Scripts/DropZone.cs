@@ -57,5 +57,14 @@ public class DropZone : MonoBehaviour
             ContainedCube = !partiallyOutside ? cube.transform.parent.gameObject.GetComponent<PresentCube>() : null;
         } 
     }
+
+	void OnTriggerExit(Collider collider)
+	{
+		if (collider.tag == "MovableCube")
+		{
+			ContainedCube = null;
+			ContainsCube = false;
+		}
+	}
     
 }

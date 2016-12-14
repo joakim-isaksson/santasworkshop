@@ -13,7 +13,7 @@ public class PeanutMachine : MonoBehaviour
     private float peanutSpawnTimer;
     private bool spawnPeanuts;
 	private bool startedSpawning;
-	private bool stoppedSpawning;
+	private bool stoppedSpawning = true;
     
     void Update()
     {
@@ -58,6 +58,8 @@ public class PeanutMachine : MonoBehaviour
 			{
 				stoppedSpawning = true;
 				GetComponent<AudioSource>().Stop();
+
+				GameObject.Find("Tutorial").GetComponent<Tutorial>().UpdateProgress("Peanut");
 			}
 		}
     }

@@ -27,6 +27,7 @@ public class Press : MonoBehaviour
             PresentCube cube = dropZone.ContainedCube;
             if (cube.Stationary && !cube.HasLid)
             {
+				GameObject.Find("Tutorial").GetComponent<Tutorial>().UpdateProgress("Press");
                 anim.SetTrigger("Fire");
 				transform.Find("Audio").GetComponent<AudioSource>().Play();
                 StartCoroutine(SetLid());

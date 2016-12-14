@@ -101,7 +101,9 @@ public class MovableCube : MonoBehaviour
 			GameObject.Find("RightPipe").transform.Find("ArriveSound").GetComponent<AudioSource>().Play();
 		}
 
-        isAnimatingSpawn = false;
+		GameObject.Find("Tutorial").GetComponent<Tutorial>().UpdateProgress("Spawn");
+
+		isAnimatingSpawn = false;
         // Announces itself to the general gameflow object
 
         isInPlay = true;
@@ -117,6 +119,8 @@ public class MovableCube : MonoBehaviour
 		Debug.Log("Take out of play");
         isAnimatingExit = true; 
         isInPlay = false;
+
+		GameObject.Find("Tutorial").GetComponent<Tutorial>().UpdateProgress("Press");
 
 		hand.EndInteraction(gameObject.GetComponent<NVRInteractableItem>());
     }

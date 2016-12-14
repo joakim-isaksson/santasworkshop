@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33000013231661402}
   - component: {fileID: 23000013250674172}
   - component: {fileID: 95000010591465078}
+  - component: {fileID: 114684035127390910}
   m_Layer: 10
   m_Name: Lid
   m_TagString: CubePart
@@ -91,6 +92,7 @@ GameObject:
   - component: {fileID: 33000012025091918}
   - component: {fileID: 23000013844734762}
   - component: {fileID: 95000014067955928}
+  - component: {fileID: 114514401930318174}
   m_Layer: 10
   m_Name: Box
   m_TagString: CubePart
@@ -670,6 +672,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Material: 7
+--- !u!114 &114514401930318174
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000014113821880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ed944ab3d673834b8e24532ef9997f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RandomTextures:
+  - {fileID: 2800000, guid: ef0745356c9aa174491125ece92ecdef, type: 3}
+  - {fileID: 2800000, guid: a9c70f952f9a4204bad34ad2fa3a0c5e, type: 3}
+  - {fileID: 2800000, guid: 48a1d496da64b4546a5eb602a6e797ac, type: 3}
+  - {fileID: 2800000, guid: 3777e49256a9241648cf4758d9f1285b, type: 3}
+  ChosenTexture: 0
+  linkedParent: {fileID: 0}
+--- !u!114 &114684035127390910
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011678265668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ed944ab3d673834b8e24532ef9997f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RandomTextures:
+  - {fileID: 2800000, guid: 1912175d7f0e598459013e426f0216ec, type: 3}
+  - {fileID: 2800000, guid: 94267ba8040e942468a9a1d0d945d0f5, type: 3}
+  - {fileID: 2800000, guid: a5524e2372256d246a30d8ca5b91a186, type: 3}
+  - {fileID: 2800000, guid: 683185942e626478bb4cfeb77653f44f, type: 3}
+  ChosenTexture: 0
+  linkedParent: {fileID: 1000014113821880}
 --- !u!114 &114904601051509000
 MonoBehaviour:
   m_ObjectHideFlags: 1
