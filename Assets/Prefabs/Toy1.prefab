@@ -139,4 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RandomTextures:
-  - {fileID: 2800000, guid: 15af3596ac09b45c2ad160e826d7238f, type: 3}
+  - {fileID: 2800000, guid: 4c819dba8dd3f4ebaa6ac137307052d6, type: 3}
+  - {fileID: 2800000, guid: 80187541cf39b4dc085b77299ebcd790, type: 3}
+  - {fileID: 2800000, guid: 2f7c14db695be4c78bbf0b58a2205d2e, type: 3}
+  - {fileID: 2800000, guid: a43c6d84985524cc58c452facdedeacf, type: 3}

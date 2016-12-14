@@ -830,7 +830,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RandomTextures:
-  - {fileID: 2800000, guid: 421c61e3060cb45a4acc932f0b6095f4, type: 3}
+  - {fileID: 2800000, guid: 795d427962e8c4841a55bd780102b3e8, type: 3}
+  - {fileID: 2800000, guid: 57e13a7dffad4446289701e76d9294d7, type: 3}
+  - {fileID: 2800000, guid: f6d3fc251d1ac4366b4e5cf3f91d55fb, type: 3}
+  - {fileID: 2800000, guid: 94122681ac9f34b0d9dd887f3e21bb2d, type: 3}
+  ChosenTexture: 0
+  linkedParent: {fileID: 0}
 --- !u!114 &114907220370055956
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -843,4 +848,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RandomTextures:
-  - {fileID: 2800000, guid: aac073cfbe245493d9b174ca23c8a237, type: 3}
+  - {fileID: 2800000, guid: 29d6370f9f1954d9c9b18a6eb186c837, type: 3}
+  - {fileID: 2800000, guid: 4417e3470458a4b918a7728c514ba93e, type: 3}
+  - {fileID: 2800000, guid: b1fb8b4e8576b44208c1b37fcc5e804b, type: 3}
+  - {fileID: 2800000, guid: 497029692aa7b481a8703b5a8f4e0a1c, type: 3}
+  ChosenTexture: 0
+  linkedParent: {fileID: 1969238015845718}
