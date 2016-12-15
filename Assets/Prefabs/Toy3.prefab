@@ -196,6 +196,7 @@ GameObject:
   - component: {fileID: 54165874501354532}
   - component: {fileID: 65182852312662328}
   - component: {fileID: 114338430565927910}
+  - component: {fileID: 114677297338871392}
   m_Layer: 0
   m_Name: Toy3
   m_TagString: Present
@@ -836,6 +837,18 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 94122681ac9f34b0d9dd887f3e21bb2d, type: 3}
   ChosenTexture: 0
   linkedParent: {fileID: 0}
+--- !u!114 &114677297338871392
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1969238015845718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5acc68a2ecf98824ba3f8fa739c53028, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Material: 3
 --- !u!114 &114907220370055956
 MonoBehaviour:
   m_ObjectHideFlags: 1
